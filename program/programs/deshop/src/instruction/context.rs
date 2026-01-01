@@ -17,11 +17,6 @@ pub struct Initialize<'info> {
     pub global_info: Account<'info, GlobalInfo>,
 }
 
-pub fn handle_initialize(ctx: Context<Initialize>) -> Result<()> {
-    msg!("Greetings from: {:?}", ctx.program_id);
-    Ok(())
-}
-
 #[derive(Accounts)]
 pub struct InitializeSeller<'info> {
     pub system_program: Program<'info, System>,
@@ -35,11 +30,6 @@ pub struct InitializeSeller<'info> {
            space = 8 + SellerInfo::LEN,
        )]
     pub seller_info: Account<'info, SellerInfo>,
-}
-
-pub fn handle_initialize_seller(ctx: Context<InitializeSeller>) -> Result<()> {
-    msg!("Greetings from: {:?}", ctx.program_id);
-    Ok(())
 }
 
 #[derive(Accounts)]
@@ -78,9 +68,4 @@ pub struct Checkout<'info> {
             token::authority = signer,
         )]
     pub signer_token_ata: Account<'info, TokenAccount>,
-}
-
-pub fn handle_checkout(ctx: Context<Checkout>) -> Result<()> {
-    msg!("Greetings from: {:?}", ctx.program_id);
-    Ok(())
 }

@@ -13,99 +13,207 @@ datasource db {
   provider = "postgresql"
 }
 
+enum PaymentMethod {
+  ONCE
+  SUBSCRIPTION
+}
+
 model Product {
-  id    Int     @id @default(autoincrement())
-  storeId Int
-  category String
-  name  String
-  description  String
-  image String
-  deliverables String
-  seller String
-  price Int
-  purchases Int
+  id            Int           @id @default(autoincrement())
+  storeId       Int
+  category      String
+  name          String
+  description   String
+  image         String
+  deliverables  String
+  seller        String
+  price         Int
+  paymentMethod PaymentMethod
+  purchases     Int
+}
+
+enum FileType {
+  PHYSICAL
+  PDF
+  SPREADSHEET
+  PRESENTATION
+  IMAGES
+  VIDEOS
+  ZIP
+}
+
+model Deliverable {
+  id           Int      @id @default(autoincrement())
+  productId    Int
+  title        String
+  fileType     FileType
+  fileSizeInKb Int
+}
+
+model Order {
+  id          Int    @id @default(autoincrement())
+  productId   Int
+  buyer       String
+  transaction String @unique
 }
 
 model Review {
-  id    Int     @id @default(autoincrement())
+  id        Int    @id @default(autoincrement())
   productId Int
-  comment String
-  rating Int
-  reviewer String
+  comment   String
+  rating    Int
+  reviewer  String
+}
+
+enum Font {
+  INTER
+  ROBOTO
+  POPPINS
+  MONTSERRAT
+  OPEN_SANS
+  LATO
+  MULISH
+  NUNITO
+  RALEWAY
+  SOURCE_SANS_PRO
+}
+
+enum ButtonShape {
+  ROUNDED
+  SQUARE
+  PILL
+}
+
+enum ButtonStyle {
+  FILLED
+  OUTLINE
+}
+
+enum CardShadow {
+  NONE
+  LIGHT
+  MEDIUM
+  HIGH
+}
+
+enum TextStyle {
+  THIN
+  EXTRA_LIGHT
+  LIGHT
+  NORMAL
+  SEMI_BOLD
+  BOLD
+  EXTRA_BOLD
+  BLACK
+}
+
+enum HeaderLayout {
+  CENTERED_COLUMN_WISE
+  CENTERED_ROW_WISE
+  JUSTIFY_BETWEEN
+}
+
+enum HeroBackgroundStyle {
+  IMAGE
+  IMAGE_DARKENED
+  IMAGE_CLOUDED
+  IMAGE_BLURRED_LIGHT
+  IMAGE_BLURRED_MEDIUM
+  IMAGE_BLURRED_HEAVY
+  COLOR
+  COLOR_OUTLINE_THIN
+  COLOR_OUTLINE_NORMAL
+  COLOR_OUTLINE_SEMI_BOLD
+  COLOR_OUTLINE_BOLD
+  COLOR_OUTLINE_EXTRA_BOLD
+  COLOR_OUTLINE_BLACK
 }
 
 model Store {
-  id    Int     @id @default(autoincrement())
+  id     Int    @id @default(autoincrement())
   seller String
 
-  name String
+  name        String
   description String
 
-  logo String
-  logoText String
-  logoTextFont String
-  logoTextFontSize String
-  logoTextStyle String
+  logo             String
+  logoText         String
+  logoTextFont     Font
+  logoTextFontSize Int
+  logoTextStyle    TextStyle
 
-  headerLayout String
+  headerLayout HeaderLayout
 
-  heroTitle String
-  heroTitleColor String
-  heroTitleFont String
-  heroTitleFontSize String
-  heroTitleStyle String
+  heroTitle         String
+  heroTitleColor    String
+  heroTitleFont     Font
+  heroTitleFontSize Int
+  heroTitleStyle    TextStyle
 
-  heroDescription String
-  heroDescriptionColor String
-  heroDescriptionFont String
-  heroDescriptionFontSize String
-  heroDescriptionStyle String
+  heroDescription         String
+  heroDescriptionColor    String
+  heroDescriptionFont     Font
+  heroDescriptionFontSize Int
+  heroDescriptionStyle    TextStyle
 
-  heroHeight Int
-  heroBackgroundColor String
-  heroBackgroundRadius String
-  heroBackgroundStyle String
-  heroCover String
+  heroHeight           Int
+  heroBackgroundColor  String
+  heroBackgroundRadius Int
+  heroBackgroundStyle  HeroBackgroundStyle
+  heroCover            String
 
-  primaryColor String
-  secondaryColor String
-  accentColor String
+  primaryColor    String
+  secondaryColor  String
+  accentColor     String
   backgroundColor String
 
-  headingFont String
-  bodyFont String
+  headingFont Font
+  bodyFont    Font
 
-  buttonShape String
-  buttonStyle String
+  buttonShape ButtonShape
+  buttonStyle ButtonStyle
 
-  productGridRows Int
+  productGridRows    Int
   productGridColumns Int
 
-  contentSpacing Int
+  contentSpacing   Int
   cardBorderRadius Int
-  cardShadow String
+  cardShadow       CardShadow
 
   categories Int
 }
 
 model Category {
-  id    Int     @id @default(autoincrement())
+  id      Int    @id @default(autoincrement())
   storeId Int
-  name String
+  name    String
+}
+
+enum Gender {
+  MALE
+  FEMALE
 }
 
 model User {
-  wallet    String     @id
-  name String
-  photo String
-  gender String
-  bio String
-  location String
-  email String
-  phone String
-  instagram String
-  facebook String
-  x String
-  linkedin String
-  whatsapp String
+  wallet    String @id @unique
+  name      String
+  photo     String
+  gender    Gender
+  bio       String
+  location  String
+  email     String @unique
+  phone     String @unique
+  instagram String @unique
+  facebook  String @unique
+  x         String @unique
+  linkedin  String @unique
+  whatsapp  String @unique
+}
+
+model Message {
+  id       Int      @id @default(autoincrement())
+  customer String
+  seller   String
+  message  String
+  datetime DateTime
 }

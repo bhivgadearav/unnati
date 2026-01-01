@@ -5,7 +5,7 @@ Account Pages :-
 - Profile Page
 - Seller Account Creation Page
 - My Orders Page
-- Deliverables Page
+- Fullfillment & Deliverables Page
 
 Store Pages :-
 - Create Store Page
@@ -19,6 +19,6 @@ Store Pages :-
 - Store Page
 - Product Page
 - Checkout Page
-- Deliverables Page
+- Fullfillment & Deliverables Page
 
 // Problem with adding refunds is that how will solana program track every single payment to every single seller on his every single product

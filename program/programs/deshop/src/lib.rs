@@ -1,9 +1,8 @@
 use anchor_lang::prelude::*;
 mod error;
-mod events;
-mod instructions;
+mod event;
 mod state;
-use instructions::{handle_checkout, handle_initialize, handle_initialize_seller};
+mod instruction;
 
 declare_id!("22XZU4FA95TFfgEgmASYutYwubKZvqaz94YF6qqNkJ3s");
 
@@ -12,14 +11,14 @@ pub mod deshop {
     use super::*;
 
     pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        handle_initialize(ctx)
+        instruction::handler::handle_initialize(ctx)
     }
 
     pub fn initialize_seller(ctx: Context<InitializeSeller>) -> Result<()> {
-        handle_initialize_seller(ctx)
+        instruction::handler::handle_initialize_seller(ctx)
     }
 
     pub fn checkout(ctx: Context<Checkout>) -> Result<()> {
-        handle_checkout(ctx)
+        instruction::handler::handle_checkout(ctx)
     }
 }
