@@ -20,16 +20,21 @@ enum PaymentMethod {
 
 model Product {
   id            Int           @id @default(autoincrement())
+  store         Store         @relation(fields: [storeId], references: [id])
   storeId       Int
-  category      String
+  category      Category      @relation(fields: [categoryId], references: [id])
+  categoryId    Int
   name          String
   description   String
   image         String
-  deliverables  String
-  seller        String
+  seller        User          @relation(fields: [sellerId], references: [wallet])
+  sellerId      String        @unique
   price         Int
   paymentMethod PaymentMethod
   purchases     Int
+  deliverables  Deliverable[]
+  orders        Order[]
+  review        Review[]
 }
 
 enum FileType {
@@ -44,6 +49,7 @@ enum FileType {
 
 model Deliverable {
   id           Int      @id @default(autoincrement())
+  product      Product  @relation(fields: [productId], references: [id])
   productId    Int
   title        String
   fileType     FileType
@@ -51,18 +57,22 @@ model Deliverable {
 }
 
 model Order {
-  id          Int    @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
+  product     Product @relation(fields: [productId], references: [id])
   productId   Int
-  buyer       String
-  transaction String @unique
+  consumer    User    @relation(fields: [consumerId], references: [wallet])
+  consumerId  String
+  transaction String  @unique
 }
 
 model Review {
-  id        Int    @id @default(autoincrement())
-  productId Int
-  comment   String
-  rating    Int
-  reviewer  String
+  id         Int     @id @default(autoincrement())
+  product    Product @relation(fields: [productId], references: [id])
+  productId  Int
+  comment    String
+  rating     Int
+  reviewer   User    @relation(fields: [reviewerId], references: [wallet])
+  reviewerId String
 }
 
 enum Font {
@@ -130,8 +140,9 @@ enum HeroBackgroundStyle {
 }
 
 model Store {
-  id     Int    @id @default(autoincrement())
-  seller String
+  id       Int    @id @default(autoincrement())
+  seller   User   @relation(fields: [sellerId], references: [wallet])
+  sellerId String
 
   name        String
   description String
@@ -180,13 +191,16 @@ model Store {
   cardBorderRadius Int
   cardShadow       CardShadow
 
-  categories Int
+  products   Product[]
+  categories Category[]
 }
 
 model Category {
-  id      Int    @id @default(autoincrement())
-  storeId Int
-  name    String
+  id       Int       @id @default(autoincrement())
+  store    Store     @relation(fields: [storeId], references: [id])
+  storeId  Int
+  name     String
+  products Product[]
 }
 
 enum Gender {
@@ -195,25 +209,33 @@ enum Gender {
 }
 
 model User {
-  wallet    String @id @unique
-  name      String
-  photo     String
-  gender    Gender
-  bio       String
-  location  String
-  email     String @unique
-  phone     String @unique
-  instagram String @unique
-  facebook  String @unique
-  x         String @unique
-  linkedin  String @unique
-  whatsapp  String @unique
+  wallet           String    @id @unique
+  name             String
+  photo            String
+  gender           Gender
+  bio              String
+  location         String
+  email            String    @unique
+  phone            String    @unique
+  instagram        String    @unique
+  facebook         String    @unique
+  x                String    @unique
+  linkedin         String    @unique
+  whatsapp         String    @unique
+  product          Product?
+  orders           Order[]
+  reviews          Review[]
+  stores           Store[]
+  sentMessages     Message[] @relation("SentMessages")
+  receivedMessages Message[] @relation("ReceivedMessages")
 }
 
 model Message {
-  id       Int      @id @default(autoincrement())
-  customer String
-  seller   String
-  message  String
-  datetime DateTime
+  id         Int      @id @default(autoincrement())
+  sender     User     @relation("SentMessages", fields: [senderId], references: [wallet])
+  senderId   String
+  receiver   User     @relation("ReceivedMessages", fields: [receiverId], references: [wallet])
+  receiverId String
+  message    String
+  datetime   DateTime
 }
