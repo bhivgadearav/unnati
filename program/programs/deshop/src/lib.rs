@@ -7,7 +7,7 @@ mod instruction;
 declare_id!("22XZU4FA95TFfgEgmASYutYwubKZvqaz94YF6qqNkJ3s");
 
 #[program]
-pub mod deshop {
+pub mod unnati {
     use super::*;
 
     pub fn initialize(ctx: Context<Initialize>) -> Result<()> {

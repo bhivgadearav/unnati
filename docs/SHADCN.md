@@ -1,0 +1,1 @@
+Customized shadcn/ui components: bunx --bun shadcn@latest create --preset "https://ui.shadcn.com/init?base=radix&style=maia&baseColor=neutral&theme=emerald&iconLibrary=lucide&font=jetbrains-mono&menuAccent=subtle&menuColor=default&radius=default&template=next" --template next

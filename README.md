@@ -1,5 +1,5 @@
-## DeShop: Decentralized Shop
-DeShop is shopify for digital products but going even further to make receiving payments even more accessible using CINR (Crypto Indian Rupees) which is cryptocurrency on the Solana blockchain pegged to real INR.
+## Unnati
+Unnati is shopify for digital/physical products but it makes receiving payments accessible & hassle free using CINR (Crypto Indian Rupees) which is cryptocurrency on Solana pegged to real INR.
 
 ### Tech Stack - TypeScript Focused
 1. Package Manager - Bun

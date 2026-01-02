@@ -1,1 +1,1 @@
-export default '@deshop/prettier-config'
+export default '@unnati/prettier-config'

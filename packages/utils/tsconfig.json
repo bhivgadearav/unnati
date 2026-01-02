@@ -1,5 +1,5 @@
 {
-  "extends": "@deshop/typescript-config/base.json",
+  "extends": "@unnati/typescript-config/base.json",
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src",

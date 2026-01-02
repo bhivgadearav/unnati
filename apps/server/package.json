@@ -10,8 +10,8 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@deshop/typescript-config": "workspace:*",
-    "@deshop/prettier-config": "workspace:*",
-    "@deshop/eslint-config": "workspace:*"
+    "@unnati/typescript-config": "workspace:*",
+    "@unnati/prettier-config": "workspace:*",
+    "@unnati/eslint-config": "workspace:*"
   }
 }

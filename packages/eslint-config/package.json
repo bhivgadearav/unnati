@@ -1,5 +1,5 @@
 {
-  "name": "@deshop/eslint-config",
+  "name": "@unnati/eslint-config",
   "version": "0.0.0",
   "type": "module",
   "private": true,

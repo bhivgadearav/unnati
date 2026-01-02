@@ -5,7 +5,7 @@ b. All payments are done to this PDA.
 
 2. Claim Payments
 a. Seller call claim function.
-b. DeShop takes 10% fees and sends rest to seller.
+b. Unnati takes 10% fees and sends rest to seller.
 
 3. Subscriptions
 a. Users pay fees upfront for 1 month 3 months, 6 months, 9 months, 1 year.

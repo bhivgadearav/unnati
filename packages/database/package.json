@@ -1,5 +1,5 @@
 {
-  "name": "@deshop/database",
+  "name": "@unnati/database",
   "version": "0.1.0",
   "module": "src/index.ts",
   "type": "module",
@@ -22,9 +22,9 @@
     "db:deploy": "bunx prisma migrate deploy"
   },
   "dependencies": {
-    "@deshop/eslint-config": "workspace:*",
-    "@deshop/prettier-config": "workspace:*",
-    "@deshop/typescript-config": "workspace:*",
+    "@unnati/eslint-config": "workspace:*",
+    "@unnati/prettier-config": "workspace:*",
+    "@unnati/typescript-config": "workspace:*",
     "@prisma/client": "^7.2.0",
     "@prisma/extension-accelerate": "^3.0.1"
   },

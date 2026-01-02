@@ -1,1 +1,1 @@
-module.exports = "@deshop/prettier-config";
+module.exports = "@unnati/prettier-config";

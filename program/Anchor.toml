@@ -6,7 +6,7 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-deshop = "22XZU4FA95TFfgEgmASYutYwubKZvqaz94YF6qqNkJ3s"
+unnati = "22XZU4FA95TFfgEgmASYutYwubKZvqaz94YF6qqNkJ3s"
 
 [registry]
 url = "https://api.apr.dev"

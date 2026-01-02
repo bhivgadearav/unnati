@@ -1,5 +1,5 @@
 {
-  "name": "@deshop/utils",
+  "name": "@unnati/utils",
   "version": "0.1.0",
   "module": "src/index.ts",
   "type": "module",
@@ -19,9 +19,9 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@deshop/typescript-config": "workspace:*",
-    "@deshop/prettier-config": "workspace:*",
-    "@deshop/eslint-config": "workspace:*"
+    "@unnati/typescript-config": "workspace:*",
+    "@unnati/prettier-config": "workspace:*",
+    "@unnati/eslint-config": "workspace:*"
   },
   "devDependencies": {
     "@types/bun": "latest"

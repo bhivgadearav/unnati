@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 
 #[error_code]
-pub enum DeShopErrorCodes {
+pub enum UnnatiErrorCodes {
     #[msg("Program already initialized.")]
     ProgramInitialized,
     #[msg("Amount value sent is zero.")]

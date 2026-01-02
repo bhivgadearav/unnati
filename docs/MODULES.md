@@ -1,5 +1,5 @@
 ### Modules
-1. CINR (Crypto Indian Rupees) Payments - Customers can pay the sellers using CINR one-time or on a subscription basis. Sellers receive payments on their assigned PDA address. Sellers can claim their accumulated revenue from deshop's solana program every month but deshop will tak 10% fees on every claim.
+1. CINR (Crypto Indian Rupees) Payments - Customers can pay the sellers using CINR one-time or on a subscription basis. Sellers receive payments on their assigned PDA address. Sellers can claim their accumulated revenue from unnati's solana program every month but unnati will tak 10% fees on every claim.
 
 2. Escrow + Conditional Release - Payment goes into a program-controlled PDA escrow; funds are released to seller when buyer confirms delivery or after a timeout. Disputes can be escalated.
 
