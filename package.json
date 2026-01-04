@@ -20,5 +20,9 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "neverthrow": "^8.2.0",
+    "winston": "^3.19.0"
+  }
 }

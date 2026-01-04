@@ -15,3 +15,5 @@ Unnati is shopify for digital/physical products but it makes receiving payments 
 11. CI/CD - GitHub Actions
 12. Linting & Formatting — ESLint + Prettier + TypeScript strictness rules
 13. Emails - Mailgun
+14. Logging - winston
+15. Error Handling - neverthrow
